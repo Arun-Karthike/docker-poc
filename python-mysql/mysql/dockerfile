@@ -1,0 +1,9 @@
+FROM mysql
+# Environment Variables
+ENV MYSQL_DATABASE=BucketList \
+    MYSQL_USER=db_user \
+    MYSQL_PASSWORD=supersecret
+RUN env
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app .
+copy ./sql-scripts/ /docker-entrypoint-initdb.d/

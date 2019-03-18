@@ -1,0 +1,22 @@
+FROM centos:7
+RUN yum update -y 
+RUN yum install -y wget \
+curl \
+gcc \
+gcc-c++
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+RUN wget http://nodejs.org/dist/v0.10.30/node-v0.10.30.tar.gz
+
+RUN tar xzvf node-v* 
+
+RUN cd /usr/src/app/node-v*
+
+RUN "./configure"
+
+RUN make && make install
+
+CMD ["node" , "--version"]
