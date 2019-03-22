@@ -1,0 +1,26 @@
+version: '3'
+services:
+   angular:
+      build:
+        context: angular-client
+      container_name: "angular-dev"
+      ports:
+        - "4200:4200"   
+   express:
+      build:
+        context: express-server
+      container_name: "express-dev"
+      ports:
+        - "3000:3000"
+      networks:
+        - back-end
+   db:
+      image: mongo
+      container_name: "db"
+      ports:
+        - "27017:27017"
+      networks:
+        - back-end
+networks:
+   front-end:
+   back-end:
