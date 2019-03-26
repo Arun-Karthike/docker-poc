@@ -15,7 +15,7 @@ const route = require('./routes/route')
 
 //Connecting DB
 
-mongoose.connect('mongodb://database/contactlist');
+mongoose.connect('mongodb://database:27017/contactlist');
 
 //On Connection
 
