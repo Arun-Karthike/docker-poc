@@ -34,7 +34,7 @@ router.post('/contact', (req, res, next)=>{
 //Delete Contacts
 
 router.delete('/contact/:id', (req, res, next)=>{
-	Contact.remove({_id: req.params.id}, funtion(err, result){
+	Contact.remove({_id: req.params.id}, function(err, result){
               if(err)
               {
                   res.json(err);
